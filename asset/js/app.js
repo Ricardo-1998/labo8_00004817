@@ -104,9 +104,11 @@ const eliminar= (tbody)=>{
 }
    
 //¿Qué es lo que hace .firstChild?
+//firstChild contiene  el primer nodo hijo como un ELEMENTO nodo
+
 
 //Después de realizar el while ¿Comó quedara el elemento tbody ?
-
+//tbody queda vacio.
 const agregar= ()=>{ 
     var eventtr = document.querySelectorAll(".click"); 
       eventtr.forEach((item, index) => { 
@@ -117,9 +119,12 @@ const agregar= ()=>{
      }); 
     }) 
    } 
-   //¿Qué es lo que obtenemos cuando se ejecuta item.childNodes[i].textContent;
+//¿Qué es lo que obtenemos cuando se ejecuta item.childNodes[i].textContent;
+//En item.childNodes[1] obtenemos la fecha escrita
+//En item.childNodes[2] obtenemos la descripcion escrita
+//En item.childNodes[3] obtenemos la cantidad de horas escritas
 
-   const mostrar = ()=>{ 
+const mostrar = ()=>{ 
     if (document.querySelector(".tabla-btc tbody").childElementCount > 0) { 
      eliminar(document.querySelector(".tabla-btc tbody")); 
     } 
@@ -127,12 +132,22 @@ const agregar= ()=>{
      crearElemento(item, document.querySelector(".tabla-btc tbody")); 
     }); 
     agregar(); 
-   } 
+} 
+   
   
 //¿Qué es lo que obtenemos cuando se realiza document.querySelector(".tabla-btc tbody") ?
+//Obtiene los elementos los tbody anteriormente creados.
 
  //¿Qué hace el método childElementCount?
+//Cuenta la cantidad de elementos de hijos que tiene.
 
 //¿Qué se mostrara en pantalla cuando se ejecute la función agregar()?
+//Solo se guardan los valores que tiene la bitacora en el tbody pero no se muestra nada en pantalla
 
 //¿Qué se mostrara en el navegador despues de ejecutar la función mostrar?
+//Se mostraran en la tabla los valores que estan en bitacora
+
+var validarformulario = (formulario) =>{
+
+    
+}
