@@ -7,7 +7,7 @@ const navSlide = ()=>{
     burger.addEventListener("click", ()=>{
         nav.classList.toggle('nav-active');
 
-        navLinks.forEach((link, index) =>{
+        navLinks.forEach((link, indagregarex) =>{
             
             if(link.style.animation)
             {
@@ -56,16 +56,19 @@ formulario.addEventListener("submit", (evt) => {
 
 
 formulario.addEventListener("submit", (evt) => {
-    evt.preventDefault(); 
-    let bitacora = { 
-    cant:cont, 
-    fecha: formulario[1].value, 
-    descripcion: formulario[2].value, 
-    cantidad: formulario[3].value 
-  } 
+    evt.preventDefault();
+    if(validarFormulario(formulario)){
+        let bitacora = { 
+        cant:cont, 
+        fecha: formulario[1].value, 
+        descripcion: formulario[2].value, 
+        cantidad: formulario[3].value
+    }
+    
     bitacoras.push(bitacora);
     cont++;
-    mostrar();
+    mostrar(); 
+  } 
  }); 
 
 
@@ -147,7 +150,17 @@ const mostrar = ()=>{
 //¿Qué se mostrara en el navegador despues de ejecutar la función mostrar?
 //Se mostraran en la tabla los valores que estan en bitacora
 
-var validarformulario = (formulario) =>{
-
-    
+var validarFormulario = (formulario) =>{
+    var flag = true;
+    for (let i = 1; i < formulario.length; i++){
+        if(formulario[i].value == "" || formulario[i].value == null){
+            formulario[i].style.borderColor = "red";
+            flag = false;
+        }
+        else{
+            formulario[i].style.borderColor = "green";
+        }
+    }
+    return flag;
 }
+
